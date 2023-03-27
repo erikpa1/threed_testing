@@ -1,0 +1,5 @@
+[app]
+name = "threed-testing"
+stylized-name = "Threed Testing"
+domain = "exe.sk"
+template-pack = "winit"

@@ -26,6 +26,7 @@ pub async fn run() {
         1000.0,
     );
     let mut control = OrbitControl::new(*camera.target(), 1.0, 100.0);
+
     let mut gui = three_d::GUI::new(&context);
 
     let mut loaded = if let Ok(loaded) = three_d_asset::io::load_async(&[

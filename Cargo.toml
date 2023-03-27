@@ -1,11 +1,24 @@
 [package]
-name = "threed_testing"
+name = "threed-testing"
 version = "0.1.0"
-edition = "2021"
+authors = ["erik.palencik <erik.palencik@exe.sk>"]
+edition = "2018"
 
-# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+[lib]
+crate-type = ["staticlib", "cdylib", "rlib"]
+
+[[bin]]
+name = "threed-testing-desktop"
+path = "gen/bin/desktop.rs"
 
 [dependencies]
-three-d = { version = "0.15.0", features = ["egui-gui"] }
-three-d-asset = { version = "0.5", features = ["hdr", "gltf", "obj", "vol", "pcd", "png", "jpeg", "http", "data-url"] }
-tokio = { version = "1.26.0", features = ["full"] }
+mobile-entry-point = "0.1.0"
+winit = "0.23.0"
+
+[target.'cfg(target_os = "android")'.dependencies]
+android_logger = "0.9.0"
+log = "0.4.11"
+ndk-glue = "0.2.1"
+
+[target.'cfg(not(target_os = "android"))'.dependencies]
+simple_logger = "1.11.0"
